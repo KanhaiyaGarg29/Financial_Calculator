@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Sedan+SC&family=Sedan:ital@0;1&display=swap');
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ci-main-container {
+  background-image: url(../images/pic19.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calc-container {
+  padding: 15px;
+  width: 30%;
+  background: #000000b0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.calc-container:hover {
+  transform: scale(1.05);
+}
+
+.calc-title {
+  font-family: "Sedan", serif;
+  text-align: center;
+  font-size: 24px;
+  color: #dbdbdb;
+  /* text-decoration: underline; */
+}
+
+.calc-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.ci-label {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  color: #fdfdfd;
+  font-family: "Sedan", serif;
+  /* width: 70%; */
+}
+
+.ci-input {
+  font-family: "Sedan", serif;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  /* background-color: #ffffffad; */
+}
+
+.calc-button {
+  background-color: #c60059;
+  font-family: "Sedan", serif;
+  color: white;
+  padding: 5px;
+  font-size: 17px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.calc-button:hover {
+  box-shadow: 0 6px 10px rgba(0, 255, 8, 0.715);
+  transform: scale(1.02); 
+  background-color: #ffd8ed; 
+  color: black; 
+}
+
+.reset-button {
+  background-color: #c60059;
+  color: white;
+  font-family: "Sedan", serif;
+  padding: 5px;
+  font-size: 17px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+  box-shadow: 0 6px 10px rgba(0, 255, 8, 0.715);
+  transform: scale(1.05);
+  background-color: #ffd8ed;
+  color: black;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calc-summary {
+  margin-top: 20px;
+  background: #1a1a1a9e;
+  padding: 15px;
+  border: 1px solid #c8d8e6;
+  border-radius: 5px;
+  font-family: "Sedan", serif;
+  padding: 5px;
+  font-size: 17px;
+  /* width:fit-content; */
+}
+
+.ci-sum-heading {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+  color: #fffefe;
+}
+
+.calc-summary p {
+  margin: 5px 0;
+  color: #ffffff;
+  font-size: 17px;
+}
+

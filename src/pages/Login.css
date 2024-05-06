@@ -1,0 +1,84 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(../images/pic10.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.login-container {
+  width: 30%;
+  height: 55%;
+  padding: 20px;
+  background-color: #ffffff95;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-form {
+  /* margin-top: 20%; */
+  display: flex;
+  flex-direction: column;
+}
+
+.login-group {
+  margin-bottom: 15px;
+}
+
+.login-group input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 55%;
+  font-family: "Sedan", serif;
+}
+
+.login-button {
+  padding: 7px;
+  width: 100px;
+  background-color: var(--color, #ffffff);
+  border: 1px solid var(--color, #ccc);
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: 0.25s;
+  text-align: center;
+  font-family: "Sedan", serif;
+  font-size: 17px;
+  margin: 0 auto;
+}
+
+.login-button:hover,
+.login-button:focus {
+  box-shadow: 0 1em 0.5em -0.4em var(--hover, #3d0068);
+  transform: translateY(-0.40em);
+  border-color: var(--hover, #3d0068);
+  color: #1d1d1d;
+  font-family: "Sedan", serif;
+}
+
+
+.login-heading {
+  margin-top: 20%;
+  font-family: "Sedan", serif;
+  color: rgb(42, 42, 42);
+  text-decoration: underline;
+}
+
+.forgot-password-link {
+  font-size: 15px;
+  font-family: "Sedan", serif;
+  color: #045752;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+
+.forgot-password-link:hover {
+  color: blue;
+  text-decoration: underline;
+}

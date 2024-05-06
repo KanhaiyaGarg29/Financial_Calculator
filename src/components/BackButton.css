@@ -1,0 +1,19 @@
+.ci-backbutton {
+    background-color: #c60059;
+    font-family: "Sedan", serif;
+    color: white;
+    padding: 5px;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ci-backbutton:hover {
+    box-shadow: 0 6px 10px rgba(0, 255, 8, 0.715);
+    transform: scale(1.02);
+    background-color: #ffd8ed;
+    color: black;
+}

@@ -1,11 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import './BackButton.css'
 
 function BackButton() {
-    const navigate=useNavigate();
+  const navigate = useNavigate();
   return (
     <div>
-        <button onClick={()=> navigate("/")}>Go Back</button>
+      <button className='ci-backbutton' onClick={() => navigate("/home")}>Home</button>
     </div>
   )
 }

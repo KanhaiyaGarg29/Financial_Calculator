@@ -1,115 +1,178 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import './CICalc.css';
 import BackButton from './BackButton';
 
 function CICalc() {
-    const[formData,setFormData]=useState({
-        balance:"",
-        rate:"",
-        interval:"",
-        duration:"",
-        type:""
-    })
-    const{balance,rate,interval,duration,type}=formData
-    const [futureValue, setFutureValue] = useState(null);
-    const [interestEarned, setInterestEarned] = useState(null);
+  const [formData, setFormData] = useState({
+    balance: '',
+    rate: '',
+    interval: '',
+    duration: '',
+    type: '',
+  });
 
-    const handleOnChange = (e) => {
-        setFormData((prevData) => ({
-          ...prevData,
-          [e.target.name]: e.target.value,
-        }));
-      };
+  const { balance, rate, interval, duration, type } = formData;
+  const [futureValue, setFutureValue] = useState(null);
+  const [interestEarned, setInterestEarned] = useState(null);
 
-      const submitHandler=(e)=>{
-        e.preventDefault();
-        console.log(formData)
-        const Principal = parseFloat(balance); // Convert to number
-        const InterestRate = parseFloat(rate) / 100; // Convert to decimal percentage
-    
-        let numCompoundsPerYear = 1;
-        if (interval === 'monthly') {
-          numCompoundsPerYear = 12;
-        } else if (interval === 'quarterly') {
-          numCompoundsPerYear = 4;
-        }
-    
-        const numDurationInYears = type === 'years' ? duration :
-                                   type === 'months' ? duration / 12 : duration / 4;
-    
-        const futureValue = Principal * (1 + InterestRate / numCompoundsPerYear) ** (numCompoundsPerYear * numDurationInYears);
-    
-        const interestEarned = futureValue - Principal;
-    
-        setFutureValue(futureValue.toFixed(2));
-        setInterestEarned(interestEarned.toFixed(2));
-      };
-    
-      
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const principal = parseFloat(balance);
+    const interestRate = parseFloat(rate) / 100;
+    const numCompoundsPerYear = interval.toLowerCase() === 'monthly' ? 12 : 1;
+
+    let numDurationInYears;
+    if (type.toLowerCase() === 'years') {
+      numDurationInYears = parseFloat(duration);
+    } else if (type.toLowerCase() === 'months') {
+      numDurationInYears = parseFloat(duration) / 12;
+    } else {
+      numDurationInYears = parseFloat(duration) / 4;
+    }
+
+    if (isNaN(principal) || isNaN(interestRate) || isNaN(numDurationInYears)) {
+      // Error handling for invalid inputs
+      setFutureValue(null);
+      setInterestEarned(null);
+      return;
+    }
+
+    const calculatedFutureValue = principal * (1 + interestRate / numCompoundsPerYear) ** (numCompoundsPerYear * numDurationInYears);
+
+    const calculatedInterestEarned = calculatedFutureValue - principal;
+
+    setFutureValue(calculatedFutureValue.toFixed(2));
+    setInterestEarned(calculatedInterestEarned.toFixed(2));
+  };
+
+  const resetForm = () => {
+    setFormData({
+      balance: '',
+      rate: '',
+      interval: '',
+      duration: '',
+      type: '',
+    });
+    setFutureValue(null);
+    setInterestEarned(null);
+  };
 
   return (
-    <div>
-      <BackButton></BackButton>
-        <form onSubmit={submitHandler}>
-            <label>
-                Starting Balance
-                <input type="text"
+    <div className='ci-main-container'>
+      <div className="calc-container">
+        <h2 className="calc-title">Compound Interest Calculator</h2>
+        <form onSubmit={submitHandler} className="calc-form">
+          <div className="form-group">
+            <label className='ci-label'>
+              Starting Balance
+              <input
+                className='ci-input'
+                type="number"
+                step="0.01"
                 required
                 name="balance"
                 value={balance}
                 onChange={handleOnChange}
-                placeholder="Your starting balance"></input>
-            </label><br></br>
-            <label>
-                Annual Interest rate
-                <input type="text"
+                placeholder="Enter your starting balance"
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label className='ci-label'>
+              Annual Interest Rate
+              <input
+                className='ci-input'
+                type="number"
+                step="0.01"
                 required
                 name="rate"
                 value={rate}
                 onChange={handleOnChange}
-                placeholder="Annual Interest rate"></input>
-            </label><br></br>
-            <label>
-                Compound Interval
-                <select name="interval" value={interval} onChange={handleOnChange}>
-                    <option>Select the interval</option>
-                    <option>Annualy</option>
-                    <option>Monthly</option>
-                </select>
-            </label><br></br>
-            <label>
-                Duration
-                <input type="text"
+                placeholder="Enter the annual interest rate"
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label className='ci-label'>
+              Compound Interval
+              <select
+                className='ci-input'
+                name="interval"
+                value={interval}
+                onChange={handleOnChange}
+                required
+              >
+                <option value="">Select an interval</option>
+                <option value="monthly">Monthly</option>
+                <option value="annually">Annually</option>
+              </select>
+            </label>
+          </div>
+          <div className="form-group">
+            <label className='ci-label'>
+              Duration
+              <input
+                className='ci-input'
+                type="number"
+                step="0.1"
                 required
                 value={duration}
                 name="duration"
                 onChange={handleOnChange}
-                placeholder="Duration of your Investement"></input>
-            </label><br></br>
-            <label>
-               Duration Type  
-               <select name="type" value={type} onChange={handleOnChange}>
-                <option>Select Duration Type</option>
-                <option>Years</option>
-                <option>Quarters</option>
-                <option>Months</option>
-               </select>
-            </label><br></br>
+                placeholder="Enter the duration"
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label className='ci-label'>
+              Duration Type
+              <select
+                className='ci-input'
+                name="type"
+                value={type}
+                onChange={handleOnChange}
+                required
+              >
+                <option value="">Select the duration type</option>
+                <option value="years">Years</option>
+                <option value="quarters">Quarters</option>
+                <option value="months">Months</option>
+              </select>
+            </label>
+          </div>
+          <div className="button-group">
+            <button type="submit" className="calc-button">
+              Calculate
+            </button>
 
-            <button>Calculate</button>
+            <button type="button" className="reset-button" onClick={resetForm}>
+              Reset
+            </button>
+            <BackButton></BackButton>
+          </div>
         </form>
 
         {futureValue !== null && interestEarned !== null && (
-                <div>
-                    <h2>Summary</h2>
-                   
-                    <p>Future Value: {futureValue}</p>
-                    <p>Interest Earned: {interestEarned}</p>
-                    <p>Initial Amount: {balance}</p>
-                    <p>Annual Rate: {rate}%</p>
-                </div>
-            )}
+          <div className="calc-summary">
+            <h2 className='ci-sum-heading'>Calculation Result:</h2>
+            <p>Future Value: {futureValue}</p>
+            <p>Interest Earned: {interestEarned}</p>
+            <p>Initial Amount: {balance}</p>
+            <p>Annual Rate: {rate}%</p>
+          </div>
+        )}
+      </div>
     </div>
-  )
+  );
 }
 
-export default CICalc
+export default CICalc;
