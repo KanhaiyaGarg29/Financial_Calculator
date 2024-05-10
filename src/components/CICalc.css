@@ -16,6 +16,7 @@
   background-position: center;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -99,6 +100,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
+
 }
 
 .reset-button:hover {
@@ -106,6 +108,27 @@
   transform: scale(1.05);
   background-color: #ffd8ed;
   color: black;
+}
+.learnmore-button{
+  background-color: #c60059;
+  color: white;
+  font-family: "Sedan", serif;
+  padding: 5px;
+  font-size: 17px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.learnmore-button:hover {
+  box-shadow: 0 6px 10px rgba(0, 255, 8, 0.715);
+  transform: scale(1.05);
+  background-color: #ffd8ed;
+  color: black;
+}
+.learnmore-button a{
+  text-decoration: none;
+  color: white;
 }
 
 .button-group {

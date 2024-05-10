@@ -54,6 +54,7 @@ function CAGR() {
 
     return (
         <div className="ci-main-container">
+              <BackButton />
             <div className="calc-container">
 
                 <h2 className="calc-title">Annualized Return Calculator</h2>
@@ -127,7 +128,9 @@ function CAGR() {
                         <button type="button" className="reset-button" onClick={resetForm}>
                             Reset
                         </button>
-                        <BackButton />
+                        <button type="button" className="learnmore-button">
+                         <a href="https://corporatefinanceinstitute.com/resources/wealth-management/annualized-total-return/" target='_blank'>Learn More</a>
+                        </button>
 
                     </div>
                 </form>

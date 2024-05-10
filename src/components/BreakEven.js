@@ -64,6 +64,7 @@ function BreakEven() {
 
   return (
     <div className="ci-main-container">
+      <BackButton />
       <div className="calc-container">
 
         <h2 className="calc-title">Break-Even Point Calculator</h2>
@@ -121,7 +122,9 @@ function BreakEven() {
             <button type="button" className="reset-button" onClick={resetForm}>
               Reset
             </button>
-            <BackButton />
+            <button type="button" className="learnmore-button">
+                  <a href="https://squareup.com/us/en/the-bottom-line/managing-your-finances/how-to-calculate-break-even-point-analysis#:~:text=Revenue%20is%20the%20price%20for,%E2%80%93%20Variable%20Cost%20per%20Unit)." target='_blank'>Learn More</a>
+             </button>
           </div>
         </form>
 

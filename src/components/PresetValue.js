@@ -53,6 +53,7 @@ function PresetValue() {
 
     return (
         <div className="ci-main-container">
+            <BackButton />
             <div className="calc-container">
 
 
@@ -125,7 +126,9 @@ function PresetValue() {
                         <button type="button" className="reset-button" onClick={resetForm}>
                             Reset
                         </button>
-                        <BackButton />
+                        <button type="button" className="learnmore-button">
+                            <a href="https://www.wallstreetmojo.com/present-value-formula/" target='_blank'>Learn More</a>
+                        </button>
                     </div>
                 </form>
 

@@ -51,6 +51,7 @@ function InvestmentTimeCalc() {
 
     return (
         <div className="ci-main-container">
+             <BackButton />
             <div className="calc-container">
 
                 <h2 className="calc-title">Investment Time Calculator</h2>
@@ -108,7 +109,9 @@ function InvestmentTimeCalc() {
                         <button type="button" className="reset-button" onClick={resetForm}>
                             Reset
                         </button>
-                        <BackButton />
+                        <button type="button" className="learnmore-button">
+                            <a href="https://www.wallstreetmojo.com/present-value-formula/" target='_blank'>Learn More</a>
+                        </button>
                     </div>
                 </form>
 

@@ -68,6 +68,7 @@ function CICalc() {
 
   return (
     <div className='ci-main-container'>
+       <BackButton></BackButton>
       <div className="calc-container">
         <h2 className="calc-title">Compound Interest Calculator</h2>
         <form onSubmit={submitHandler} className="calc-form">
@@ -157,7 +158,9 @@ function CICalc() {
             <button type="button" className="reset-button" onClick={resetForm}>
               Reset
             </button>
-            <BackButton></BackButton>
+            <button type="button" className="learnmore-button">
+                  <a href="https://www.ent.com/education-center/smart-money-management/what-is-compound-interest/#:~:text=Compound%20interest%20is%20calculated%20by,the%20loan%2C%20including%20compound%20interest." target='_blank'>Learn More</a>
+            </button>
           </div>
         </form>
 

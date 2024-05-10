@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import './Home.css';
 
 function Home() {
@@ -25,7 +26,6 @@ function Home() {
       </div>
 
       <div className="home-small-container">
-
         <div
           className="home-item"
           onClick={() => clickHandler("/ci")}
