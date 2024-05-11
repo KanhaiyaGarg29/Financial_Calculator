@@ -7,7 +7,7 @@ import PresetValue from './components/PresetValue';
 import BreakEven from './components/BreakEven';
 import InvestmentTimeCalc from './components/InvestmentTimeCalc';
 import Login from './pages/Login';
-
+import  Signup  from './pages/Signup';
 
 import CAGR from './components/CAGR';
 
@@ -22,6 +22,7 @@ function App() {
         <Route path="/investmentCalc" element={<InvestmentTimeCalc></InvestmentTimeCalc>}></Route>
         <Route path="/cagr" element={<CAGR></CAGR>}></Route>
         <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
 
       </Routes>
     </div>
