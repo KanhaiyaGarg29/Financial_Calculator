@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 import './Home.css';
 
@@ -12,6 +13,8 @@ function Home() {
 
   function handleLogout() {
     navigate('/'); // Redirect to the login or home page
+    toast.success("Logout Successfully");
+    // localStorage.setItem('isLoggedIn','false')
   }
 
   return (

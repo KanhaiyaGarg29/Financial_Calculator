@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import "./Login.css";
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -29,13 +30,16 @@ const Login = () => {
     .then(result => {
       console.log(result)
       if(result.data==="Success"){
+        toast.success("Login successfull")
+        // localStorage.setItem('isLoggedIn', 'true');
         navigate("/home")
+        
       }
       else if(result.data==="the password is incorrect"){
-        alert("the password is incorrect")
+        toast.error("The password is incorrect")
       }
       else{
-        alert("user does not exit");
+        toast.error("User does not exist Signup First")
       }
     })
     .catch(err => console.log(err))
@@ -87,7 +91,7 @@ const Login = () => {
           </button>
         </form>
         
-        <Link to="/signup"> Don't have an account? Signup</Link>
+        <Link to="/signup" className="forgot-password-link"> Don't have an account? Signup</Link>
       </div>
 
     </div>

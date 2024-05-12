@@ -82,7 +82,7 @@ import axios from 'axios'
         </button>
       </form>
       
-      <Link to="/">Already have an account? Login</Link>
+      <Link to="/" className="forgot-password-link">Already have an account? Login</Link>
     </div>
 
   </div>
